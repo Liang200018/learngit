@@ -1,3 +1,5 @@
+
+很久之前的sql查询语句练习
 create activity_monthly_number
 (
 int(5)
