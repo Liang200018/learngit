@@ -1,0 +1,43 @@
+create activity_monthly_number
+(
+int(5)
+)
+select count(*) as number_nine
+from et_activity
+where date(enroll_start_time) between '2019-09-01' and '2019-09-30';
+
+select count(*) as number_ten
+from et_activity
+where date(enroll_start_time) between '2019-10-01' and '2019-10-31';
+
+select count(*) as number_eleven
+from et_activity
+where date(enroll_start_time) between '2019-11-01' and '2019-11-30';
+
+	
+	
+
+//按周计算活动数目，从周一开始算每周的第一天
+select date(enroll_start_time),week(enroll_start_time,1),count(week(enroll_start_time,1))
+from et_activity
+where date(enroll_start_time) between '2019-09-01' and '2019-11-30'
+group by week(enroll_start_time,1);
+
+select id,scan_num
+from et_activity
+order by scan_num desc;
+
+select id,scan_num
+from et_activity
+;
+
+select id,max_enroll_number,current_enroll_number
+from et_activity
+where max_enroll_number >=0
+and
+date(enroll_start_time) between '2019-09-01' and '2019-11-30';
+
+select username,creator_id,department_name,count(creator_id)
+from et_data_learn
+where department_name='计算机学院'
+group by creator_id;
